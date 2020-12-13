@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="01_hello-mybatis" />
+        <module name="03_mybatis动态代理dao方式" />
+        <module name="02_mybatis传统的dao方式" />
+        <module name="04_mybatis传参方式" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="01_hello-mybatis" target="8" />
+      <module name="02_mybatis传统的dao方式" target="8" />
+      <module name="03_mybatis动态代理dao方式" target="8" />
+      <module name="04_mybatis传参方式" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

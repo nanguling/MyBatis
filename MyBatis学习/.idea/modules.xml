@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01_hello-mybatis/01_hello-mybatis.iml" filepath="$PROJECT_DIR$/01_hello-mybatis/01_hello-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02_mybatis传统的dao方式/02_mybatis传统的dao方式.iml" filepath="$PROJECT_DIR$/02_mybatis传统的dao方式/02_mybatis传统的dao方式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03_mybatis动态代理dao方式/03_mybatis动态代理dao方式.iml" filepath="$PROJECT_DIR$/03_mybatis动态代理dao方式/03_mybatis动态代理dao方式.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04_mybatis传参方式/04_mybatis传参方式.iml" filepath="$PROJECT_DIR$/04_mybatis传参方式/04_mybatis传参方式.iml" />
+    </modules>
+  </component>
+</project>
