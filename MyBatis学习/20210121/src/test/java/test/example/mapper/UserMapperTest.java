@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 //指定为Spring环境中的单元测试
@@ -36,6 +37,23 @@ public class UserMapperTest {
         for (User user:users) {
             System.out.println("查询结果："+user);
         }
+    }
+
+    @Test
+    public void testInsertUser() {
+        User user = new User();
+        user.setUsername("d");
+        user.setPassword("4");
+        user.setNickname("滴滴");
+        user.setBirthday(new Date(1999- 2 -18));
+        int i = mapper.insertUser(user);
+        System.out.println("插入数据"+i+"条");
+    }
+
+    @Test
+    public void testSelectAll() {
+        List<User> users = mapper.selectAll();
+        users.stream().forEach(System.out::println);
     }
 
 }

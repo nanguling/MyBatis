@@ -14,4 +14,9 @@ public interface UserMapper {
 
     //根据用户名模糊查询，like“%悟%”，id，查询给定范围的，2<=id<=4
     List<User> selectUsers(@Param("username") String username,@Param("sid") Integer sid,@Param("eid")Integer eid);
+
+    //更新用户信息
+    int insertUser(User user);
+
+    List<User> selectAll();
 }

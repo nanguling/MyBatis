@@ -9,6 +9,7 @@ public class Article {
     private Integer viewCount;
     private Integer userId;
     private Date createTime;
+    private User user;
 
     public Article() {
     }
@@ -31,6 +32,7 @@ public class Article {
                 ", viewCount=" + viewCount +
                 ", userId=" + userId +
                 ", createTime=" + createTime +
+                ", user=" + user +
                 '}';
     }
 

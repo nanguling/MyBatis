@@ -8,6 +8,41 @@
         <result column="view_count" property="viewCount" />
         <result column="user_id" property="userId" />
         <result column="create_time" property="createTime" />
+        <association property="user"
+                     columnPrefix="u_"
+                     resultMap="org.example.mapper.UserMapper.BaseResultMapper">
+            <!--<id column="user_id" property="id"/>
+            <result column="createtime" property="createTime"/>-->
+        </association>
     </resultMap>
+    <select id="selectArticlesByUserId" resultType="org.example.entity.Article">
+        select id,title,content from article where user_id = #{id}
+    </select>
+
+    <update id="updateArticleByUserId">
+        update article set content = #{content} where id = #{id}
+    </update>
+
+    <delete id="deleteArticleByUserName" parameterType="java.lang.String">
+        delete article from article ,user  where article.user_id = user.id and user.username = #{name}
+    </delete>
+
+    <select id="selectArticlesLike" resultType="org.example.entity.Article">
+        select id,title,content from article order by #{column} ${orderBy}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMapper">
+        select
+               a.id,a.title,a.content,a.user_id,a.create_time,a.view_count,
+               u.id u_id,u.username u_username,u.password u_password,u.nickname u_nickname,u.sex u_sex,u.create_time u_create_time
+        from
+             article a
+        join
+            user u
+        on
+            u.id = a.user_id
+        order by
+                #{column} ${orderBy}
+    </select>
 
 </mapper>

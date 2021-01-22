@@ -1,6 +1,7 @@
 package org.example.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private Integer id;
@@ -11,6 +12,7 @@ public class User {
     private Date birthday;
     private String head;
     private Date createTime;
+    private List<Article> articles;
 
     public User() {
     }
@@ -37,6 +39,7 @@ public class User {
                 ", birthday=" + birthday +
                 ", head='" + head + '\'' +
                 ", createTime=" + createTime +
+                ", articles=" + articles +
                 '}';
     }
 

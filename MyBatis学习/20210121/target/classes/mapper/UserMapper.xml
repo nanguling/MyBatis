@@ -10,6 +10,9 @@
         <result column="birthday" property="birthday" />
         <result column="head" property="head" />
         <result column="create_time" property="createTime" />
+        <collection property="articles"
+                    columnPrefix="a_"
+                    resultMap="org.example.mapper.ArticleMapper.BaseResultMapper"/>
     </resultMap>
     <select id="selectUser" resultMap="BaseResultMapper">
         select id,username,password,nickname,sex from user where id = #{id}
@@ -17,6 +20,16 @@
 
     <select id="selectUsers" resultMap="BaseResultMapper">
         select id,username,password,nickname,sex from user where username like #{username} and id between #{sid} and #{eid}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user (username,password,nickname,birthday) values (#{username},#{password},#{nickname},#{birthday})
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMapper">
+        select a.id a_id,a.title a_title,a.content a_content,a.user_id a_user_id,a.create_time a_create_time,a.view_count a_view_count,
+               u.id id,u.username username,u.password password,u.nickname nickname,u.sex sex,u.create_time create_time
+        from user u join article a on u.id = a.user_id
     </select>
 
 </mapper>
