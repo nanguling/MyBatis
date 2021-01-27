@@ -19,11 +19,41 @@
     </select>
 
     <select id="selectUsers" resultMap="BaseResultMapper">
-        select id,username,password,nickname,sex from user where username like #{username} and id between #{sid} and #{eid}
+        select
+               id,username,password,nickname,sex
+        from
+             user
+        <where>
+            <if test="username != null">
+              and username like #{username}
+            </if>
+            <if test="sid != null">
+              and id &gt; #{sid}
+            </if>
+            <if test="eid != null">
+               and id &lt; #{eid}
+            </if>
+        </where>
     </select>
 
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
         insert into user (username,password,nickname,birthday) values (#{username},#{password},#{nickname},#{birthday})
+    </insert>
+
+    <delete id="batchDelete">
+        delete from
+                    user
+        where id in
+                <foreach collection="list" item="i" open="(" close=")" separator=",">
+                    #{i}
+                </foreach>
+    </delete>
+
+    <insert id="batchInsert">
+        insert into user (username,password,nickname,birthday) values
+        <foreach collection="list" item="user" separator=",">
+            (#{user.username},#{user.password},#{user.nickname},#{user.birthday})
+        </foreach>
     </insert>
 
     <select id="selectAll" resultMap="BaseResultMapper">

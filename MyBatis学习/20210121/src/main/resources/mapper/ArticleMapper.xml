@@ -19,8 +19,13 @@
         select id,title,content from article where user_id = #{id}
     </select>
 
-    <update id="updateArticleByUserId">
-        update article set content = #{content} where id = #{id}
+    <update id="updateArticleById">
+        update article
+            <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            </set>
+        where id = #{id}
     </update>
 
     <delete id="deleteArticleByUserName" parameterType="java.lang.String">

@@ -12,7 +12,7 @@ import java.util.List;
 public interface ArticleMapper {
     List<Article> selectArticlesByUserId(Integer userid);
 
-    int updateArticleByUserId(Article article);
+    int updateArticleById(Article article);
 
     int deleteArticleByUserName(String username);
 

@@ -19,4 +19,8 @@ public interface UserMapper {
     int insertUser(User user);
 
     List<User> selectAll();
+
+    int batchInsert(List<User> users);
+
+    int batchDelete(List<Integer> ids);
 }
